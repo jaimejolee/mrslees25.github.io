@@ -9,7 +9,7 @@
 		.box {
 			width: 70px;
 			height: 70px;
-			background-color: teal;
+			background-color: rgb(240, 22, 193);
 			font-size: 300%;
 			text-align: center;
 			user-select: none;
@@ -79,7 +79,12 @@
 			function update() {
 				moveBoxTo(positionX);
 				positionX = positionX + speed;
-				
+				if (positionX > boardWidth) {
+					speed = speed * -1;
+			}
+				if (positionX < 0) {
+					speed *= -1;
+			}
 
 
 			};
@@ -93,7 +98,7 @@
 				positionX = 0;
 				points++;
 				changeBoxText(points);
-				speed += 3;
+				speed = 3 * points + 10;
 
 			};
 
